@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    image: dev:rust
+    container_name: rust-app
+    working_dir: /adventofcode
+    volumes:
+      - ..:/adventofcode
+      - ~/.ssh:/home/dev/.ssh
+    command: sleep infinity
