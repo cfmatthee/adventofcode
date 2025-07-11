@@ -1,8 +1,5 @@
 [workspace]
-members = [
-    "day-*",
-    "day-01",
-]
+members = ["day-*"]
 default-members = ["day-*"]
 resolver = "2"
 
@@ -11,10 +8,4 @@ anyhow = "1"
 itertools = "0.14"
 nom = "8"
 tracing = "0.1"
-
-[workspace.dependencies.tracing-subscriber]
-version = "0.3"
-features = [
-    "fmt",
-    "env-filter",
-]
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }

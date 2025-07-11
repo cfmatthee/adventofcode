@@ -1,12 +1,10 @@
 #![allow(unused)]
 
-type Result<T> = std::result::Result<T, anyhow::Error>;
-
-fn process(file: &str) -> Result<String> {
+fn process(file: &str) -> anyhow::Result<String> {
     todo!("part-2");
 }
 
-fn main() -> Result<()> {
+fn main() -> anyhow::Result<()> {
     tracing_subscriber::fmt::init();
 
     let file = include_str!("../../input2.txt");
@@ -18,10 +16,10 @@ fn main() -> Result<()> {
 
 #[cfg(test)]
 mod tests {
-    use super::{process, Result};
+    use super::process;
 
     #[test]
-    fn test_process() -> Result<()> {
+    fn test_process() -> anyhow::Result<()> {
         todo!("set up test part-2");
         let input = r#""#;
         assert_eq!("", process(input)?);
