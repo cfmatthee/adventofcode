@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-fn process(file: &str) String {
+fn process(input: &str) -> String {
     todo!("part-1");
 }
 
