@@ -2,7 +2,7 @@
 
 use day_02::is_valid;
 
-fn process(file: &str) -> anyhow::Result<String> {
+fn process(file: &str) -> String {
     let result = file
         .lines()
         .filter(|&line| {
@@ -18,17 +18,13 @@ fn process(file: &str) -> anyhow::Result<String> {
             })
         })
         .count();
-    Ok(result.to_string())
+    result.to_string()
 }
 
-fn main() -> anyhow::Result<()> {
-    tracing_subscriber::fmt::init();
-
+fn main() {
     let file = include_str!("../../input2.txt");
-    let result = process(file)?;
+    let result = process(file);
     println!("{result}");
-
-    Ok(())
 }
 
 #[cfg(test)]
@@ -36,7 +32,7 @@ mod tests {
     use super::process;
 
     #[test]
-    fn test_process() -> anyhow::Result<()> {
+    fn test_process() {
         let input = r#"7 6 4 2 1
 1 2 7 8 9
 9 7 6 2 1
@@ -44,7 +40,6 @@ mod tests {
 8 6 4 4 1
 1 3 6 7 9
 "#;
-        assert_eq!("4", process(input)?);
-        Ok(())
+        assert_eq!("4", process(input));
     }
 }

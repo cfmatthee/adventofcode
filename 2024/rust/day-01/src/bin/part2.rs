@@ -1,8 +1,6 @@
 #![allow(unused)]
 
-type Result<T> = std::result::Result<T, anyhow::Error>;
-
-fn process(file: &str) -> Result<String> {
+fn process(file: &str) -> String {
     let mut left: Vec<usize> = Vec::new();
     let mut right: Vec<usize> = Vec::new();
 
@@ -17,25 +15,21 @@ fn process(file: &str) -> Result<String> {
         .map(|n| n * right.iter().filter(|r| r == &n).count())
         .sum();
 
-    Ok(result.to_string())
+    result.to_string()
 }
 
-fn main() -> Result<()> {
-    tracing_subscriber::fmt::init();
-
+fn main() {
     let file = include_str!("../../input2.txt");
-    let result = process(file)?;
+    let result = process(file);
     println!("{result}");
-
-    Ok(())
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{process, Result};
+    use super::process;
 
     #[test]
-    fn test_process() -> Result<()> {
+    fn test_process() {
         let input = r#"3   4
 4   3
 2   5
@@ -43,7 +37,6 @@ mod tests {
 3   9
 3   3
 "#;
-        assert_eq!("31", process(input)?);
-        Ok(())
+        assert_eq!("31", process(input));
     }
 }

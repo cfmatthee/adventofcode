@@ -1,17 +1,13 @@
 #![allow(unused)]
 
-fn process(file: &str) -> anyhow::Result<String> {
+fn process(file: &str) String {
     todo!("part-1");
 }
 
-fn main() -> anyhow::Result<()> {
-    tracing_subscriber::fmt::init();
-
+fn main() {
     let file = include_str!("../../input1.txt");
-    let result = process(file)?;
+    let result = process(file);
     println!("{result}");
-
-    Ok(())
 }
 
 #[cfg(test)]
@@ -19,10 +15,9 @@ mod tests {
     use super::process;
 
     #[test]
-    fn test_process() -> anyhow::Result<()> {
+    fn test_process() {
         todo!("set up test part-1");
         let input = r#""#;
-        assert_eq!("", process(input)?);
-        Ok(())
+        assert_eq!("", process(input));
     }
 }
