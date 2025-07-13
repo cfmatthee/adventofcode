@@ -2,6 +2,7 @@
 
 fn process(input: &str) -> String {
     todo!("part-1");
+    "".to_string()
 }
 
 fn main() {

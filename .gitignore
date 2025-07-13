@@ -2,3 +2,4 @@ target/
 .env
 input1.txt
 input2.txt
+Cargo.lock
