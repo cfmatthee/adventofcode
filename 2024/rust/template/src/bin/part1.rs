@@ -1,8 +1,12 @@
 #![allow(unused)]
 
+use {{project-name}}::parse;
+
 fn process(input: &str) -> String {
+    let input = parse(input);
     todo!("part-1");
-    "".to_string()
+    let result = "";
+    result.to_string()
 }
 
 fn main() {
