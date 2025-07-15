@@ -1,16 +1,16 @@
 #![allow(unused)]
 
-use {{ project-name | replace: "-", "_" }}::parse;
+use day_06::parse;
 
 fn process(input: &str) -> String {
     let input = parse(input);
-    todo!("part-1");
+    todo!("part-2");
     let result = "";
     result.to_string()
 }
 
 fn main() {
-    let file = include_str!("../../input1.txt");
+    let file = include_str!("../../input2.txt");
     let result = process(file);
     println!("{result}");
 }
@@ -21,7 +21,7 @@ mod tests {
 
     #[test]
     fn test_process() {
-        todo!("set up test part-1");
+        todo!("set up test part-2");
         let input = r#""#;
         assert_eq!("", process(input));
     }

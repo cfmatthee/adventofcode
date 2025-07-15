@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-use {{project-name}}::parse;
+use {{ project-name | replace: "-", "_" }}::parse;
 
 fn process(input: &str) -> String {
     let input = parse(input);
