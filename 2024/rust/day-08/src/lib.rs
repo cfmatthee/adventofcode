@@ -2,6 +2,7 @@ use std::collections::HashMap;
 
 use itertools::enumerate;
 
+#[allow(clippy::type_complexity)]
 pub fn parse(input: &str) -> (HashMap<char, Vec<(u32, u32)>>, usize, usize) {
     let mut rows = 0;
     let mut cols = 0;
