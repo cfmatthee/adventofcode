@@ -5,4 +5,7 @@ resolver = "2"
 
 [workspace.dependencies]
 itertools = "0.14"
+ndarray = "0.16"
+ndarray-linalg = { version = "0.17", features = ["openblas"] }
 nom = "8"
+openblas-src = "0.10"

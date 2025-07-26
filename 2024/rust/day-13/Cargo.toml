@@ -1,0 +1,11 @@
+[package]
+name = "day-13"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools.workspace = true
+ndarray.workspace = true
+ndarray-linalg.workspace = true
+nom.workspace = true
+openblas-src.workspace = true
