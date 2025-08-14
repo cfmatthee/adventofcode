@@ -2,7 +2,7 @@
 
 My solutions to some of the [Advent of Code](https://adventofcode.com/) problems.
 
-Solutions are stored per year and language used.
+Solutions are stored per year.
 
 ---
 
