@@ -4,14 +4,7 @@ default-members = ["day-*"]
 resolver = "2"
 
 [workspace.dependencies]
-itertools = "0.14"
 glam = "0.30"
-ndarray = "0.16"
+itertools = "0.14"
 nom = "8"
 nom_locate = "5"
-openblas-src = "0.10"
-pathfinding = "4"
-
-[workspace.dependencies.ndarray-linalg]
-version = "0.17"
-features = ["openblas"]
