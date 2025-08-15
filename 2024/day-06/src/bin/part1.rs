@@ -1,6 +1,7 @@
 #![allow(unused)]
 
 use day_06::{find_guard, parse, Direction, Guard};
+use shared::Vec2;
 
 fn process(input: &str) -> String {
     let mut input = parse(input);
@@ -10,21 +11,24 @@ fn process(input: &str) -> String {
 
     #[allow(clippy::never_loop)]
     loop {
-        let Guard { row, col, facing } = &guard;
-        input[*row as usize][*col as usize] = 'X';
-        let (new_row, new_col) = match facing {
-            Direction::LookingUp => (*row - 1, *col),
-            Direction::LookingRight => (*row, *col + 1),
-            Direction::LookingDown => (*row + 1, *col),
-            Direction::LookingLeft => (*row, *col - 1),
+        let Guard {
+            position: Vec2 { y, x },
+            facing,
+        } = &guard;
+        input[*y as usize][*x as usize] = 'X';
+        let (new_y, new_x) = match facing {
+            Direction::LookingUp => (*y - 1, *x),
+            Direction::LookingRight => (*y, *x + 1),
+            Direction::LookingDown => (*y + 1, *x),
+            Direction::LookingLeft => (*y, *x - 1),
         };
-        if new_row < 0 || new_row >= rows || new_col < 0 || new_col >= cols {
+        if new_y < 0 || new_y >= rows || new_x < 0 || new_x >= cols {
             break;
         }
 
-        if input[new_row as usize][new_col as usize] != '#' {
-            guard.row = new_row;
-            guard.col = new_col;
+        if input[new_y as usize][new_x as usize] != '#' {
+            guard.position.y = new_y;
+            guard.position.x = new_x;
         } else {
             guard.facing = match guard.facing {
                 Direction::LookingUp => Direction::LookingRight,

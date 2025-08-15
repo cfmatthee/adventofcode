@@ -1,38 +1,13 @@
-use std::{collections::HashMap, ops::Add};
+use std::collections::HashMap;
 
 use itertools::enumerate;
+use shared::Vec2;
 
-#[derive(Debug, Eq, Hash, PartialEq)]
-pub struct Position {
-    pub x: i32,
-    pub y: i32,
-}
-
-impl From<(i32, i32)> for Position {
-    fn from(value: (i32, i32)) -> Self {
-        Self {
-            x: value.0,
-            y: value.1,
-        }
-    }
-}
-
-impl Add<&(i32, i32)> for &Position {
-    type Output = Position;
-
-    fn add(self, rhs: &(i32, i32)) -> Self::Output {
-        Position {
-            x: self.x + rhs.0,
-            y: self.y + rhs.1,
-        }
-    }
-}
-
-pub fn parse(input: &str) -> HashMap<Position, char> {
-    let mut result: HashMap<Position, char> = HashMap::new();
+pub fn parse(input: &str) -> HashMap<Vec2, char> {
+    let mut result: HashMap<Vec2, char> = HashMap::new();
     for (y, line) in enumerate(input.lines()) {
         for (x, item) in enumerate(line.chars()) {
-            let pos = Position {
+            let pos = Vec2 {
                 x: x.try_into().unwrap(),
                 y: y.try_into().unwrap(),
             };

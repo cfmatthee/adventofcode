@@ -1,20 +1,20 @@
 use std::collections::HashSet;
 
-use glam::IVec2;
 use nom::{
     character::complete::{newline, one_of},
     multi::{many1, separated_list1},
     IResult, Parser,
 };
 use nom_locate::LocatedSpan;
+use shared::Vec2;
 
 type Span<'a> = LocatedSpan<&'a str>;
 
 #[derive(Debug)]
 pub struct Map {
-    pub start_position: IVec2,
-    pub stop_position: IVec2,
-    pub walls: HashSet<IVec2>,
+    pub start_position: Vec2,
+    pub stop_position: Vec2,
+    pub walls: HashSet<Vec2>,
 }
 
 pub fn parse(input: &str) -> Map {
@@ -37,7 +37,7 @@ pub fn parse(input: &str) -> Map {
         .into_iter()
         .flatten()
         .filter_map(|(pos, item)| (item == '#').then_some(pos))
-        .collect::<HashSet<IVec2>>();
+        .collect::<HashSet<Vec2>>();
 
     Map {
         start_position,
@@ -46,9 +46,9 @@ pub fn parse(input: &str) -> Map {
     }
 }
 
-fn token(input: Span) -> IResult<Span, (IVec2, char)> {
+fn token(input: Span) -> IResult<Span, (Vec2, char)> {
     let y = input.location_line();
     let x = input.get_column();
     let (input, token) = one_of(".SE#")(input)?;
-    Ok((input, (IVec2::new(x as i32 - 1, y as i32 - 1), token)))
+    Ok((input, (Vec2::new(x as i32 - 1, y as i32 - 1), token)))
 }
