@@ -8,3 +8,4 @@ glam = "0.30"
 itertools = "0.14"
 nom = "8"
 nom_locate = "5"
+shared = { path = "../shared/rust" }

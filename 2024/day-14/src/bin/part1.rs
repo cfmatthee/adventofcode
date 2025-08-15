@@ -1,8 +1,9 @@
 #![allow(unused)]
 
 use day_14::{parse, Grid};
+use shared::Vec2;
 
-fn process(input: &str, grid_size: (usize, usize)) -> String {
+fn process(input: &str, grid_size: Vec2) -> String {
     let robots = parse(input);
     let mut grid = Grid::new(grid_size, robots);
 
@@ -15,12 +16,14 @@ fn process(input: &str, grid_size: (usize, usize)) -> String {
 
 fn main() {
     let file = include_str!("../../input1.txt");
-    let result = process(file, (101, 103));
+    let result = process(file, Vec2::new(103, 101));
     println!("{result}");
 }
 
 #[cfg(test)]
 mod tests {
+    use shared::Vec2;
+
     use super::process;
 
     #[test]
@@ -38,6 +41,6 @@ p=7,3 v=-1,2
 p=2,4 v=2,-3
 p=9,5 v=-3,-3
 "#;
-        assert_eq!("12", process(input, (11, 7)));
+        assert_eq!("12", process(input, Vec2::new(7, 11)));
     }
 }

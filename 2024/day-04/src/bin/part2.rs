@@ -1,6 +1,7 @@
 #![allow(unused)]
 
-use day_04::{parse, Position, OFFSETS2};
+use day_04::{parse, OFFSETS2};
+use shared::Vec2;
 
 fn process(input: &str) -> String {
     let items = parse(input);
@@ -16,7 +17,7 @@ fn process(input: &str) -> String {
                     offset_list
                         .iter()
                         .filter_map(|offsets| {
-                            let new_pos: Position = *position + offsets;
+                            let new_pos: Vec2 = *position + &From::from(offsets);
                             let item = items.get(&new_pos);
                             item
                         })

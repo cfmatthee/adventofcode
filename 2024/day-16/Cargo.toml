@@ -9,3 +9,4 @@ itertools.workspace = true
 nom.workspace = true
 nom_locate.workspace = true
 pathfinding = "4"
+shared.workspace = true
