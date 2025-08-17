@@ -1,0 +1,14 @@
+[workspace]
+members = ["day-*"]
+default-members = ["day-*"]
+resolver = "2"
+
+[workspace.dependencies]
+glam = "0.30"
+itertools = "0.14"
+nom = "8"
+nom_locate = "5"
+rstest = "0.26"
+
+[workspace.dependencies.shared]
+path = "../shared/rust"
