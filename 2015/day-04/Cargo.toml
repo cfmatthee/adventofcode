@@ -1,0 +1,14 @@
+[package]
+name = "day-04"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+glam.workspace = true
+itertools.workspace = true
+md5 = "0.8"
+nom.workspace = true
+nom_locate.workspace = true
+
+[dev-dependencies]
+rstest.workspace = true
